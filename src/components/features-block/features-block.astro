@@ -1,0 +1,37 @@
+---
+import FeatureItem from '../feature-item/feature-item.astro';
+import SectionTitle from '../section-title/section-title.astro';
+import SplitSection from '../split-section/split-section.astro';
+import './features-block.scss';
+
+export interface Props {
+    title: string;
+    description?: string;
+    imageSrc: string;
+    imageAlt: string;
+    isImageLeft?: boolean;
+    features: Array<{
+        title: string;
+        description?: string;
+        content?: any;
+    }>;
+}
+
+const { title, description, imageSrc, imageAlt, isImageLeft = true, features } = Astro.props;
+---
+
+<div class='features-block'>
+    <SectionTitle title={title} description={description} />
+    <SplitSection isImageLeft={isImageLeft} isImageRight={!isImageLeft}>
+        <img slot={isImageLeft ? 'left' : 'right'} src={imageSrc} alt={imageAlt} />
+        <div class='right' slot={isImageLeft ? 'right' : 'left'}>
+            {
+                features.map((feature) => (
+                    <FeatureItem title={feature.title} description={feature.description}>
+                        {feature.content && <Fragment set:html={feature.content} />}
+                    </FeatureItem>
+                ))
+            }
+        </div>
+    </SplitSection>
+</div>

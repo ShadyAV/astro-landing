@@ -1,0 +1,13 @@
+---
+import './section-title.scss';
+interface Props {
+    title: string;
+    description?: string;
+}
+const { title, description } = Astro.props;
+---
+
+<div class='section-title'>
+    <h2 class='title'>{title}</h2>
+    {description && <p class='description'>{description}</p>}
+</div>

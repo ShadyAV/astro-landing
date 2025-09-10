@@ -1,0 +1,57 @@
+---
+import SectionTitle from '../section-title/section-title.astro';
+import './advantages-grid.scss';
+
+const advantages = [
+    {
+        icon: '../../../public/strategy.svg',
+        title: 'Согласуем стратегию',
+        description: 'анализ товарной матрицы и выбор подходящей стратегии продвижения',
+    },
+    {
+        icon: '../../../public/ai.svg',
+        title: 'Подключим ИИ',
+        description: 'алгоритмы, доказавшие эффективность на тысячах рекламных кампаний',
+    },
+    {
+        icon: '../../../public/metrics.svg',
+        title: 'Контролируем метрики',
+        description: 'поддержание целевой доли рекламных расходов в юнит экономике товара',
+    },
+    {
+        icon: '../../../public/will_show.svg',
+        title: 'Покажем наглядно',
+        description: 'детализация и мониторинг ключевых метрик на удобных дашбордах',
+    },
+    {
+        icon: '../../../public/scale.svg',
+        title: 'Масштабируем',
+        description: 'от десятков до тысяч артикулов',
+    },
+    {
+        icon: '../../../public/security.svg',
+        title: 'Обеспечим безопасность',
+        description: 'только официальный API и конфиденциальность данных',
+    },
+];
+---
+
+<div class='advantages-grid-container'>
+    <SectionTitle
+        title='Консалтинг и ведение'
+        description='Управления внутренней рекламой "под ключ" командой экспертов с использованием ИИ. Оптимизация трафика с площадки в рамках вашей юнит-экономики'
+    />
+    <div class='advantages-grid'>
+        {
+            advantages.map((advantage) => (
+                <div class='advantage-item'>
+                    <div class='icon'>
+                        <img src={advantage.icon} alt={advantage.title} />
+                    </div>
+                    <h3 class='title'>{advantage.title}</h3>
+                    <p class='description'>{advantage.description}</p>
+                </div>
+            ))
+        }
+    </div>
+</div>

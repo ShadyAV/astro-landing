@@ -1,0 +1,17 @@
+---
+import './split-section.scss';
+interface Props {
+    isImageLeft?: boolean;
+    isImageRight?: boolean;
+}
+const { isImageLeft = false, isImageRight = false } = Astro.props;
+---
+
+<div class='split-section'>
+    <div class=`item ${isImageLeft ?'image-container' : ''}`>
+        <slot name='left' />
+    </div>
+    <div class=`item ${isImageRight ?'image-container' : ''}`>
+        <slot name='right' />
+    </div>
+</div>

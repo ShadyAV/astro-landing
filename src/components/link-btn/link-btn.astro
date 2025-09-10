@@ -1,0 +1,10 @@
+---
+import './link-btn.scss';
+const { href } = Astro.props;
+
+interface Props {
+    href: string;
+}
+---
+
+<a href={href} class='link-btn'><slot /></a>

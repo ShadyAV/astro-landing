@@ -1,0 +1,24 @@
+.split-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 48px;
+
+    .item {
+        flex: 1 1 calc(50% - 3rem);
+    }
+
+    .image-container {
+        background-color: var(--secondary-bg);
+        border-radius: 64px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .image-container img {
+        width: 610px;
+        vertical-align: middle;
+        max-width: 90%;
+    }
+}

@@ -1,0 +1,67 @@
+---
+import LinkBtn from '../link-btn/link-btn.astro';
+import './header.scss';
+---
+
+<script>
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+    const header = document.querySelector('.header-navbar');
+
+    function updateHeader() {
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY > lastScrollY && currentScrollY > 100) {
+            header?.classList.add('header-hidden');
+        } else {
+            header?.classList.remove('header-hidden');
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+    }
+
+    function onScroll() {
+        if (!ticking) {
+            requestAnimationFrame(updateHeader);
+            ticking = true;
+        }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+</script>
+
+<nav class='header-navbar'>
+    <div class='navbar-container'>
+        <a href='/' class='logo'>
+            <img src='/logo-with-text.svg' class='logo-img' alt='e-Comet' />
+        </a>
+
+        <ul class='nav-links'>
+            <li><a href='#features'>Возможности</a></li>
+            <li><a href='#pricing'>Тарифы</a></li>
+            <li><a href='#contacts'>Контакты</a></li>
+            <li><a href='#knowledge'>База Знаний</a></li>
+        </ul>
+
+        <div class='actions'>
+            <a href='https://t.me/e_comet'>
+                <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    width='24'
+                    height='24'
+                    viewBox='0 0 24 24'
+                    stroke-width='2'
+                    stroke='var(--white)'
+                    fill='none'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                >
+                    <path stroke='none' d='M0 0h24v24H0z' fill='none'></path>
+                    <path d='M15 10l-4 4l6 6l4 -16l-18 7l4 2l2 6l3 -4'></path>
+                </svg>
+            </a>
+            <LinkBtn href='/login'>Вход</LinkBtn>
+        </div>
+    </div>
+</nav>

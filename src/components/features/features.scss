@@ -1,0 +1,22 @@
+.features {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 64px;
+
+    .features-title {
+        color: var(--white);
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 3.5rem;
+        font-weight: 600;
+        line-height: 1.1;
+    }
+
+    .right {
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+    }
+}

@@ -1,16 +1,14 @@
 ---
-
+import AdvantagesGrid from '../components/advantages-grid/advantages-grid.astro';
+import Contacts from '../components/contacts/contacts.astro';
+import Features from '../components/features/features.astro';
+import Hero from '../components/hero/hero.astro';
+import BaseLayout from '../layouts/base-layout/base-layout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+    <Hero />
+    <Features />
+    <AdvantagesGrid />
+    <Contacts />
+</BaseLayout>
